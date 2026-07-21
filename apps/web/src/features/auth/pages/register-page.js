@@ -1,0 +1,48 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "@/features/auth/hooks/use-auth";
+import { motion } from "framer-motion";
+import { ShoppingBag, Store, Check } from "lucide-react";
+export const RegisterPage = () => {
+    const { register, isLoading } = useAuth();
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [phone, setPhone] = useState("");
+    const [role, setRole] = useState("customer");
+    const [hasError, setHasError] = useState(false);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setHasError(false);
+        if (!name || !email || !password) {
+            setHasError(true);
+            return;
+        }
+        try {
+            await register({
+                name,
+                email,
+                password,
+                role,
+                phone: phone || undefined,
+            });
+            if (role === "merchant") {
+                navigate({ to: "/merchant/profile" });
+            }
+            else {
+                navigate({ to: "/" });
+            }
+        }
+        catch (error) {
+            setHasError(true);
+        }
+    };
+    return (_jsx("div", { className: "min-h-[calc(100vh-4rem)] flex items-center justify-center p-4", children: _jsxs(motion.div, { initial: { opacity: 0, scale: 0.95, y: 12 }, animate: { opacity: 1, scale: 1, y: 0 }, transition: { duration: 0.3, ease: "easeOut" }, className: `w-full max-w-lg bg-white rounded-3xl p-8 shadow-sm border border-brand-neutral-100 ${hasError ? "animate-shake border-red-300" : ""}`, children: [_jsxs("div", { className: "text-center mb-8", children: [_jsx(Link, { to: "/", className: "inline-block text-4xl mb-2", children: "\uD83C\uDF7D\uFE0F" }), _jsx("h1", { className: "font-display text-2xl font-bold text-brand-neutral-950", children: "Daftar di Ludes" }), _jsx("p", { className: "text-sm text-brand-neutral-600 mt-1", children: "Mulai hemat pengeluaran atau kurangi waste warung kamu hari ini." })] }), _jsxs("form", { onSubmit: handleSubmit, className: "space-y-5", children: [_jsxs("div", { children: [_jsx("label", { className: "block text-sm font-medium text-brand-neutral-700 mb-2", children: "Pilih Peran Anda" }), _jsxs("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: [_jsxs(motion.div, { whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 }, onClick: () => setRole("customer"), className: `relative p-4 rounded-2xl border-2 cursor-pointer flex flex-col items-center justify-center text-center transition-all ${role === "customer"
+                                                ? "border-brand-green-500 bg-brand-green-50/50"
+                                                : "border-brand-neutral-200 bg-white hover:border-brand-neutral-300"}`, children: [_jsx("div", { className: "h-10 w-10 rounded-full bg-brand-green-100 flex items-center justify-center mb-3", children: _jsx(ShoppingBag, { className: "text-brand-green-600", size: 20 }) }), _jsx("h3", { className: "font-display text-base font-bold text-brand-neutral-950", children: "Saya Pembeli" }), _jsx("p", { className: "text-xs text-brand-neutral-600 mt-1", children: "Cari makanan murah berkualitas di sekitar kamu" }), role === "customer" && (_jsx("div", { className: "absolute top-3 right-3 h-5 w-5 rounded-full bg-brand-green-500 flex items-center justify-center", children: _jsx(Check, { className: "text-white", size: 12 }) }))] }), _jsxs(motion.div, { whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 }, onClick: () => setRole("merchant"), className: `relative p-4 rounded-2xl border-2 cursor-pointer flex flex-col items-center justify-center text-center transition-all ${role === "merchant"
+                                                ? "border-brand-green-500 bg-brand-green-50/50"
+                                                : "border-brand-neutral-200 bg-white hover:border-brand-neutral-300"}`, children: [_jsx("div", { className: "h-10 w-10 rounded-full bg-brand-green-100 flex items-center justify-center mb-3", children: _jsx(Store, { className: "text-brand-green-600", size: 20 }) }), _jsx("h3", { className: "font-display text-base font-bold text-brand-neutral-950", children: "Saya Pedagang" }), _jsx("p", { className: "text-xs text-brand-neutral-600 mt-1", children: "Jual makanan surplus, kurangi waste, dapat untung" }), role === "merchant" && (_jsx("div", { className: "absolute top-3 right-3 h-5 w-5 rounded-full bg-brand-green-500 flex items-center justify-center", children: _jsx(Check, { className: "text-white", size: 12 }) }))] })] })] }), _jsxs("div", { children: [_jsx("label", { className: "block text-sm font-medium text-brand-neutral-700 mb-1.5", children: "Nama Lengkap" }), _jsx("input", { type: "text", value: name, onChange: (e) => setName(e.target.value), placeholder: "Nama kamu", required: true, className: "w-full rounded-xl border border-brand-neutral-200 px-4 py-3 min-h-[48px] focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-100 outline-none transition-all placeholder:text-brand-neutral-400" })] }), _jsxs("div", { children: [_jsx("label", { className: "block text-sm font-medium text-brand-neutral-700 mb-1.5", children: "Email" }), _jsx("input", { type: "email", value: email, onChange: (e) => setEmail(e.target.value), placeholder: "email@contoh.com", required: true, className: "w-full rounded-xl border border-brand-neutral-200 px-4 py-3 min-h-[48px] focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-100 outline-none transition-all placeholder:text-brand-neutral-400" })] }), _jsxs("div", { children: [_jsx("label", { className: "block text-sm font-medium text-brand-neutral-700 mb-1.5", children: "Password" }), _jsx("input", { type: "password", value: password, onChange: (e) => setPassword(e.target.value), placeholder: "Minimal 6 karakter", required: true, minLength: 6, className: "w-full rounded-xl border border-brand-neutral-200 px-4 py-3 min-h-[48px] focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-100 outline-none transition-all placeholder:text-brand-neutral-400" })] }), _jsxs("div", { children: [_jsx("label", { className: "block text-sm font-medium text-brand-neutral-700 mb-1.5", children: "Nomor Telepon (Opsional)" }), _jsx("input", { type: "tel", value: phone, onChange: (e) => setPhone(e.target.value), placeholder: "Contoh: 081234567890", className: "w-full rounded-xl border border-brand-neutral-200 px-4 py-3 min-h-[48px] focus:border-brand-green-500 focus:ring-2 focus:ring-brand-green-100 outline-none transition-all placeholder:text-brand-neutral-400" }), _jsx("p", { className: "text-xs text-brand-neutral-600 mt-1", children: "Berguna untuk mempermudah komunikasi pelanggan dengan warung kamu." })] }), _jsx(motion.button, { whileTap: { scale: 0.97 }, whileHover: { scale: 1.01 }, type: "submit", disabled: isLoading, className: "w-full bg-brand-green-500 hover:bg-brand-green-600 active:bg-brand-green-700 disabled:bg-brand-neutral-200 text-white font-semibold rounded-xl px-6 py-3.5 min-h-[48px] transition-all shadow-sm flex items-center justify-center cursor-pointer", children: isLoading ? (_jsx("span", { className: "inline-block animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" })) : ("Daftar") })] }), _jsx("div", { className: "text-center mt-6 pt-6 border-t border-brand-neutral-100", children: _jsxs("p", { className: "text-sm text-brand-neutral-600", children: ["Sudah punya akun?", " ", _jsx(Link, { to: "/login", className: "font-semibold text-brand-green-600 hover:text-brand-green-700 transition-colors", children: "Masuk di sini \u2192" })] }) })] }) }));
+};
+//# sourceMappingURL=register-page.js.map

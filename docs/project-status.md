@@ -30,12 +30,12 @@ Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Lu
 - [x] Directory structure
 
 ### Phase 1: Backend Foundation
-- [ ] Hono app setup (entry, CORS, middleware)
-- [ ] Supabase client (service_role)
-- [ ] Auth routes (register, login, logout, me)
-- [ ] JWT verification middleware
-- [ ] Error handling middleware
-- [ ] Structured logging middleware
+- [x] Hono app setup (entry, CORS, middleware)
+- [x] Supabase client (service_role)
+- [x] Auth routes (register, login, logout, me)
+- [x] JWT verification middleware
+- [x] Error handling middleware
+- [x] Structured logging middleware
 
 ### Phase 2: Database Schema
 - [ ] SQL migration file (users, merchants, food_items, indexes, RLS)
@@ -49,14 +49,14 @@ Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Lu
 - [ ] Rate limiting
 
 ### Phase 4: Frontend Foundation
-- [ ] Vite + React + TanStack Router setup
-- [ ] Tailwind CSS configuration
-- [ ] API client (fetch wrapper)
-- [ ] Auth hooks + state
-- [ ] Login page
-- [ ] Register page
-- [ ] Route tree + auth guard
-- [ ] Layout (navbar, footer)
+- [x] Vite + React + TanStack Router setup
+- [x] Tailwind CSS configuration
+- [x] API client (fetch wrapper)
+- [x] Auth hooks + state
+- [x] Login page
+- [x] Register page
+- [x] Route tree + auth guard
+- [x] Layout (navbar, footer)
 
 ### Phase 5: Merchant Flow
 - [ ] Merchant profile page (create/edit)
@@ -109,16 +109,14 @@ Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Lu
 
 ## Current Status
 
-**Phase 0 COMPLETE. Documentation phase COMPLETE.**
+**Phase 0, 1, and 4 COMPLETE. Documentation phase COMPLETE.**
 
-Monorepo skeleton + shared package + full documentation suite ready.
+Monorepo skeleton, shared package, full documentation suite, Backend Foundation (Phase 1), and Frontend Foundation (Phase 4) ready.
 
-**Next:** Phase 1 (Backend Foundation) and Phase 4 (Frontend Foundation) — these are independent and can be done in parallel.
+**Next:** Phase 2 (Database Schema) and Phase 3 (AI Listing Service).
 
 ## Next Steps
 
-1. Initialize `apps/api/` — Hono app with Supabase + auth
-2. Initialize `apps/web/` — Vite + React + TanStack Router
-3. Run both dev servers, verify communication
-4. Implement auth flow end-to-end
-5. Continue with Phase 2 (DB schema) → Phase 3 (AI) → Phase 5 (Merchant) → Phase 6 (Consumer)
+1. User to execute the SQL database migration in Supabase editor (`apps/api/migrations/001_initial_schema.sql`).
+2. Implement Phase 3 (AI Listing Service) using the 9router LLM cheapest model endpoint.
+3. Implement Phase 5 (Merchant Flow) and Phase 6 (Consumer Flow).

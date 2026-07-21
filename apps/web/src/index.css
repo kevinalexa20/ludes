@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Lexend", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --color-brand-green-50: #F0FDF4;
+  --color-brand-green-100: #DCFCE7;
+  --color-brand-green-200: #BBF7D0;
+  --color-brand-green-400: #4ADE80;
+  --color-brand-green-500: #22C55E;
+  --color-brand-green-600: #16A34A;
+  --color-brand-green-700: #15803D;
+
+  --color-brand-orange-50: #FFF7ED;
+  --color-brand-orange-100: #FFEDD5;
+  --color-brand-orange-400: #FB923C;
+  --color-brand-orange-500: #F97316;
+  --color-brand-orange-600: #EA580C;
+
+  --color-brand-neutral-50: #FAFAF9;
+  --color-brand-neutral-100: #F5F5F4;
+  --color-brand-neutral-200: #E7E5E4;
+  --color-brand-neutral-400: #A8A29E;
+  --color-brand-neutral-600: #57534E;
+  --color-brand-neutral-800: #292524;
+  --color-brand-neutral-950: #0C0A09;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-neutral-50);
+    color: var(--color-brand-neutral-800);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-brand-neutral-950);
+  }
+}
+
+/* Custom animations helper classes if needed */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
