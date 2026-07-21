@@ -15,6 +15,7 @@ import { RegisterPage } from "@/features/auth/pages/register-page";
 import { MerchantProfilePage } from "@/pages/merchant-profile-page";
 import { FoodListPage } from "@/pages/food-list-page";
 import { CreateFoodPage } from "@/pages/create-food-page";
+import { FoodDetailPage } from "@/features/browse/pages/food-detail-page";
 
 // Helper components for guards
 const AuthGuard = ({ children, requireMerchant = false }: { children: React.ReactNode, requireMerchant?: boolean }) => {
@@ -136,6 +137,12 @@ const merchantFoodNewRoute = createRoute({
   ),
 });
 
+const foodDetailRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/food/$foodId",
+  component: FoodDetailPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   loginRoute,
@@ -143,6 +150,7 @@ const routeTree = rootRoute.addChildren([
   merchantProfileRoute,
   merchantFoodRoute,
   merchantFoodNewRoute,
+  foodDetailRoute,
 ]);
 
 const router = createRouter({ routeTree });

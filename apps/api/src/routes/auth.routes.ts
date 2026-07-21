@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { registerSchema, loginSchema } from "@ludes/shared";
-import { supabase } from "../lib/supabase.js";
+import { supabase, createAdminClient } from "../lib/supabase.js";
 import { authMiddleware } from "../middleware/auth.js";
 import { CustomEnv } from "../index.js";
 
@@ -21,7 +21,12 @@ authRouter.post("/register", zValidator("json", registerSchema), async (c) => {
     });
 
     if (authError) {
-      if (authError.message.includes("already registered") || authError.status === 409) {
+      if (
+        authError.message.toLowerCase().includes("already registered") ||
+        authError.message.toLowerCase().includes("already been registered") ||
+        authError.status === 409 ||
+        authError.code === "email_exists"
+      ) {
         return c.json({ error: "Email already registered" }, 409);
       }
       return c.json({ error: authError.message }, 400);
@@ -47,7 +52,8 @@ authRouter.post("/register", zValidator("json", registerSchema), async (c) => {
     }
 
     // 3. Sign in to retrieve access token
-    const { data: sessionData, error: signInError } = await supabase.auth.signInWithPassword({
+    const authClient = createAdminClient();
+    const { data: sessionData, error: signInError } = await authClient.auth.signInWithPassword({
       email,
       password,
     });
@@ -80,7 +86,8 @@ authRouter.post("/login", zValidator("json", loginSchema), async (c) => {
   const { email, password } = c.req.valid("json");
 
   try {
-    const { data: sessionData, error: signInError } = await supabase.auth.signInWithPassword({
+    const authClient = createAdminClient();
+    const { data: sessionData, error: signInError } = await authClient.auth.signInWithPassword({
       email,
       password,
     });

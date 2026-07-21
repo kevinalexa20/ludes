@@ -7,13 +7,25 @@ if (!supabaseUrl || !supabaseServiceKey) {
   throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY environment variables.");
 }
 
-// Create a single supabase client for general/admin use
+console.log("Supabase Client initialized. URL:", supabaseUrl, "Key length:", supabaseServiceKey.length);
+
+// Create a single supabase client for general/admin use (singleton)
 export const supabase = createClient(supabaseUrl, supabaseServiceKey, {
   auth: {
     persistSession: false,
     autoRefreshToken: false,
   },
 });
+
+// Create a fresh admin client to avoid session pollution / RLS bypass issues
+export const createAdminClient = () => {
+  return createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+};
 
 // Helper to create a user-scoped client by passing the user's JWT/Access Token
 export const createSupabaseClientForUser = (accessToken: string) => {

@@ -1,9 +1,14 @@
 {
   "name": "ludes",
   "private": true,
+  "packageManager": "pnpm@11.5.2",
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:api": "pnpm --filter api dev",
+    "dev:web": "pnpm --filter web dev",
+    "build": "turbo run build",
+    "build:api": "pnpm --filter api build",
+    "build:web": "pnpm --filter web build",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck"
   },
