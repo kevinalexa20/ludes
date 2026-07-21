@@ -91,7 +91,7 @@ export const FoodListPage = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Header Info */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl p-6 border border-green-100/50">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-gradient-to-r from-green-50 to-brand-emerald-50 rounded-3xl p-6 border border-green-100/50">
         <div>
           <h1 className="font-display text-2xl font-bold text-brand-neutral-950 flex items-center gap-2">
             <Store className="text-brand-green-500" /> {merchantProfile?.name || "Nama Warung"}
@@ -109,7 +109,7 @@ export const FoodListPage = () => {
           </Link>
           <button
             onClick={logout}
-            className="bg-red-50 hover:bg-red-100 text-red-600 font-semibold rounded-xl px-4 py-2.5 text-xs transition-colors cursor-pointer border border-red-100"
+            className="bg-brand-red-50 hover:bg-brand-red-100 text-brand-red-600 font-semibold rounded-xl px-4 py-2.5 text-xs transition-colors cursor-pointer border border-brand-red-100"
           >
             Keluar
           </button>
@@ -265,7 +265,7 @@ export const FoodListPage = () => {
                         </button>
                         <button
                           onClick={() => setDeleteItemId(item.id)}
-                          className="cursor-pointer text-red-500 hover:text-red-600 hover:bg-red-50 p-2 rounded-xl transition-all"
+                          className="cursor-pointer text-brand-red-500 hover:text-brand-red-600 hover:bg-brand-red-50 p-2 rounded-xl transition-all"
                         >
                           <Trash2 size={18} />
                         </button>
@@ -364,7 +364,7 @@ export const FoodListPage = () => {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              className="h-16 w-16 bg-gradient-to-tr from-amber-500 to-yellow-400 rounded-full flex items-center justify-center text-white mb-2 shadow-sm"
+              className="h-16 w-16 bg-gradient-to-tr from-brand-amber-500 to-brand-yellow-400 rounded-full flex items-center justify-center text-white mb-2 shadow-sm"
             >
               <Sparkles size={32} />
             </motion.div>

@@ -53,7 +53,7 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
       animate="visible"
       whileHover={!isSoldOut ? { y: -4 } : undefined}
       whileTap={!isSoldOut ? { scale: 0.98 } : undefined}
-      className="relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-neutral-100 transition-all duration-200 flex flex-col h-full cursor-pointer group"
+      className="relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-brand-neutral-100 transition-all duration-200 flex flex-col h-full cursor-pointer group"
     >
       <Link
         to="/food/$foodId"
@@ -61,7 +61,7 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
         className="flex flex-col h-full"
       >
         {/* Image Section */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 flex items-center justify-center">
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-neutral-100 flex items-center justify-center">
           {item.picture_url ? (
             <img
               src={item.picture_url}
@@ -70,7 +70,7 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
               loading="lazy"
             />
           ) : (
-            <div className="flex flex-col items-center gap-2 text-neutral-400">
+            <div className="flex flex-col items-center gap-2 text-brand-neutral-400">
               <UtensilsCrossed size={40} className="stroke-[1.5]" />
               <span className="text-xs font-medium">Tidak ada foto</span>
             </div>
@@ -85,8 +85,8 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
 
           {/* Sold Out Overlay */}
           {isSoldOut && (
-            <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px] flex items-center justify-center">
-              <span className="bg-neutral-800 text-white font-bold text-sm px-4 py-2 rounded-xl border border-neutral-700 uppercase tracking-wide">
+            <div className="absolute inset-0 bg-brand-neutral-900/60 backdrop-blur-[2px] flex items-center justify-center">
+              <span className="bg-brand-neutral-800 text-white font-bold text-sm px-4 py-2 rounded-xl border border-brand-neutral-700 uppercase tracking-wide">
                 Habis Ludes
               </span>
             </div>
@@ -96,12 +96,12 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
         {/* Content Section */}
         <div className="p-4 flex flex-col flex-1 justify-between gap-3">
           <div className="space-y-1">
-            <h3 className="font-lexend font-semibold text-neutral-950 text-base line-clamp-1 group-hover:text-green-600 transition-colors">
+            <h3 className="font-display font-semibold text-brand-neutral-950 text-base line-clamp-1 group-hover:text-brand-green-600 transition-colors">
               {item.name}
             </h3>
             
             {item.description && (
-              <p className="text-xs text-neutral-600 line-clamp-2 min-h-[2rem]">
+              <p className="text-xs text-brand-neutral-600 line-clamp-2 min-h-[2rem]">
                 {item.description}
               </p>
             )}
@@ -110,22 +110,22 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
           <div className="space-y-2">
             {/* Price Row */}
             <div className="flex flex-wrap items-baseline gap-1.5">
-              <span className="text-lg font-bold text-neutral-950">
+              <span className="text-lg font-bold text-brand-neutral-950">
                 Rp {item.final_price.toLocaleString("id-ID")}
               </span>
               
               {discountPct > 0 && (
-                <span className="text-xs text-neutral-400 line-through">
+                <span className="text-xs text-brand-neutral-400 line-through">
                   Rp {item.original_price.toLocaleString("id-ID")}
                 </span>
               )}
             </div>
 
-            <div className="border-t border-neutral-100 pt-2 flex flex-col gap-1">
+            <div className="border-t border-brand-neutral-100 pt-2 flex flex-col gap-1">
               {/* Merchant name */}
               {item.merchant && (
-                <div className="flex items-center gap-1.5 text-neutral-600 text-xs">
-                  <Store size={14} className="text-neutral-400 shrink-0" />
+                <div className="flex items-center gap-1.5 text-brand-neutral-600 text-xs">
+                  <Store size={14} className="text-brand-neutral-400 shrink-0" />
                   <span className="font-medium line-clamp-1">
                     {item.merchant.name}
                   </span>
@@ -134,9 +134,9 @@ export const FoodCard: React.FC<FoodCardProps> = ({ item, index, userLocation })
 
               {/* Distance */}
               {item.merchant && (
-                <div className="flex items-center gap-1.5 text-neutral-600 text-xs">
-                  <MapPin size={14} className="text-neutral-400 shrink-0" />
-                  <span className="text-neutral-500 font-medium">
+                <div className="flex items-center gap-1.5 text-brand-neutral-600 text-xs">
+                  <MapPin size={14} className="text-brand-neutral-400 shrink-0" />
+                  <span className="text-brand-neutral-500 font-medium">
                     {distanceText}
                   </span>
                 </div>

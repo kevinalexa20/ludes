@@ -370,7 +370,7 @@ export const CreateFoodPage = () => {
             </div>
 
             <div className="bg-brand-green-50 border border-brand-green-100 rounded-2xl p-4 flex gap-4 items-center">
-              <div className="h-16 w-16 rounded-xl bg-neutral-200 overflow-hidden flex-shrink-0">
+              <div className="h-16 w-16 rounded-xl bg-brand-neutral-200 overflow-hidden flex-shrink-0">
                 {imagePreview && (
                   <img src={imagePreview} alt="Preview" className="object-cover h-full w-full" />
                 )}

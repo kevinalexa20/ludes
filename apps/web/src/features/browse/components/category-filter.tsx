@@ -35,13 +35,13 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           <button
             key={category.id}
             onClick={() => onSelectCategory(category.id)}
-            className="relative flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500"
+            className="relative flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-500"
           >
             {/* Active background anim with Framer Motion layoutId */}
             {isActive && (
               <motion.div
                 layoutId="activeCategoryBg"
-                className="absolute inset-0 bg-green-500 rounded-full"
+                className="absolute inset-0 bg-brand-green-500 rounded-full"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
@@ -49,14 +49,14 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             <span className="relative z-10 text-base">{category.emoji}</span>
             <span
               className={`relative z-10 transition-colors duration-200 ${
-                isActive ? "text-white font-semibold" : "text-neutral-600 hover:text-neutral-900"
+                isActive ? "text-white font-semibold" : "text-brand-neutral-600 hover:text-brand-neutral-900"
               }`}
             >
               {category.name}
             </span>
             
             {!isActive && (
-              <span className="absolute inset-0 bg-neutral-100 hover:bg-neutral-200/80 rounded-full -z-10 transition-colors duration-200" />
+              <span className="absolute inset-0 bg-brand-neutral-100 hover:bg-brand-neutral-200/80 rounded-full -z-10 transition-colors duration-200" />
             )}
           </button>
         );

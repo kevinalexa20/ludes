@@ -25,6 +25,18 @@
   --color-brand-neutral-600: #57534E;
   --color-brand-neutral-800: #292524;
   --color-brand-neutral-950: #0C0A09;
+
+  --color-brand-red-50: #FEF2F2;
+  --color-brand-red-100: #FEE2E2;
+  --color-brand-red-500: #EF4444;
+  --color-brand-red-600: #DC2626;
+  --color-brand-red-700: #B91C1C;
+
+  --color-brand-amber-400: #FBBF24;
+  --color-brand-amber-500: #F59E0B;
+  --color-brand-yellow-400: #FACC15;
+
+  --color-brand-emerald-50: #ECFDF5;
 }
 
 @layer base {
@@ -51,4 +63,25 @@
 
 .animate-shake {
   animation: shake 0.5s ease-in-out;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus-visible outline for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-green-500);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
 }
