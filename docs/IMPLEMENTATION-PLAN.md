@@ -49,7 +49,7 @@ This document tracks the implementation of Ludes from zero to deployed MVP. Each
 
 ## Phase 1: Backend Foundation (Hono + Supabase + Auth)
 
-**Status:** [ ] TODO
+**Status:** ✅ DONE
 **Estimated:** 2 hours
 **Dependencies:** Phase 0
 
@@ -95,7 +95,7 @@ This document tracks the implementation of Ludes from zero to deployed MVP. Each
 
 ## Phase 2: Database Schema + Migration
 
-**Status:** [ ] TODO
+**Status:** ✅ DONE
 **Estimated:** 1 hour
 **Dependencies:** Phase 1
 
@@ -191,7 +191,7 @@ CREATE POLICY "food_items_merchant_write" ON food_items FOR ALL
 
 ## Phase 3: AI Listing Service (Foto → Listing)
 
-**Status:** [ ] TODO
+**Status:** ✅ DONE
 **Estimated:** 2 hours
 **Dependencies:** Phase 1
 
@@ -246,7 +246,7 @@ CREATE POLICY "food_items_merchant_write" ON food_items FOR ALL
 
 ## Phase 4: Frontend Foundation (Vite + Router + Auth UI)
 
-**Status:** [ ] TODO
+**Status:** ✅ DONE
 **Estimated:** 2 hours
 **Dependencies:** Phase 0
 
@@ -321,7 +321,7 @@ CREATE POLICY "food_items_merchant_write" ON food_items FOR ALL
 
 ## Phase 5: Merchant Flow (Profile + Food CRUD + AI Upload)
 
-**Status:** [ ] TODO
+**Status:** ✅ DONE
 **Estimated:** 3 hours
 **Dependencies:** Phase 1, 2, 3, 4
 
@@ -390,7 +390,7 @@ CREATE POLICY "food_items_merchant_write" ON food_items FOR ALL
 
 ## Phase 6: Consumer Flow (Browse + Detail + WA Order)
 
-**Status:** [ ] TODO
+**Status:** ✅ DONE
 **Estimated:** 2 hours
 **Dependencies:** Phase 2, 4
 

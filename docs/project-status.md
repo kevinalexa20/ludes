@@ -38,15 +38,15 @@ Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Lu
 - [x] Structured logging middleware
 
 ### Phase 2: Database Schema
-- [ ] SQL migration file (users, merchants, food_items, indexes, RLS)
-- [ ] User executes migration in Supabase dashboard
+- [x] SQL migration file (users, merchants, food_items, indexes, RLS)
+- [x] User executes migration in Supabase dashboard
 
 ### Phase 3: AI Listing Service
-- [ ] LLM client setup (9router endpoint)
-- [ ] AI listing service (photo → name, description, category)
-- [ ] AI route (POST /api/ai/generate-listing)
-- [ ] Pricing suggestion integration
-- [ ] Rate limiting
+- [x] LLM client setup (9router endpoint)
+- [x] AI listing service (photo → name, description, category)
+- [x] AI route (POST /api/ai/generate-listing)
+- [x] Pricing suggestion integration
+- [x] Rate limiting
 
 ### Phase 4: Frontend Foundation
 - [x] Vite + React + TanStack Router setup
@@ -59,18 +59,18 @@ Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Lu
 - [x] Layout (navbar, footer)
 
 ### Phase 5: Merchant Flow
-- [ ] Merchant profile page (create/edit)
-- [ ] Merchant API routes (CRUD)
-- [ ] Food item list page (merchant's items)
-- [ ] Food API routes (CRUD)
-- [ ] AI upload flow (photo → AI → form → submit)
-- [ ] Coming soon placeholder
+- [x] Merchant profile page (create/edit)
+- [x] Merchant API routes (CRUD)
+- [x] Food item list page (merchant's items)
+- [x] Food API routes (CRUD)
+- [x] AI upload flow (photo → AI → form → submit)
+- [x] Coming soon placeholder
 
 ### Phase 6: Consumer Flow
-- [ ] Home page (food grid, filter, sort)
-- [ ] Food detail page
-- [ ] WhatsApp order URL generator
-- [ ] Geolocation with fallback
+- [x] Home page (food grid, filter, sort)
+- [x] Food detail page
+- [x] WhatsApp order URL generator
+- [x] Geolocation with fallback
 
 ### Phase 7: UI Polish
 - [ ] Color palette + typography
@@ -109,14 +109,19 @@ Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Lu
 
 ## Current Status
 
-**Phase 0, 1, and 4 COMPLETE. Documentation phase COMPLETE.**
+**Phases 0 through 6 COMPLETE. Documentation phase COMPLETE.**
 
-Monorepo skeleton, shared package, full documentation suite, Backend Foundation (Phase 1), and Frontend Foundation (Phase 4) ready.
+All core features are implemented, validated, and building successfully on both frontend and backend:
+- Auth & session management (JWT-based, role-based guards)
+- AI-powered food listing (Gemini Flash 3 Vision analysis)
+- Rule-based dynamic pricing suggestions with margin protection (floor price)
+- Geolocation-based food discovery and distance calculation
+- WhatsApp-based order redirect integration
 
-**Next:** Phase 2 (Database Schema) and Phase 3 (AI Listing Service).
+**Next:** Phase 7 (UI Polish) and Phase 8 (Deployment).
 
 ## Next Steps
 
-1. User to execute the SQL database migration in Supabase editor (`apps/api/migrations/001_initial_schema.sql`).
-2. Implement Phase 3 (AI Listing Service) using the 9router LLM cheapest model endpoint.
-3. Implement Phase 5 (Merchant Flow) and Phase 6 (Consumer Flow).
+1. Review and polish UI/UX animations and touch targets for mobile responsiveness (Phase 7).
+2. Configure nginx server block at ludes.camuscleansheet.com and obtain SSL via Let's Encrypt certbot (Phase 8).
+3. Start backend services via PM2/systemd and run end-to-end QA check before submitting to IDCamp challenge.

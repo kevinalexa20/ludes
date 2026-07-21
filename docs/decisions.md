@@ -152,3 +152,28 @@ Append-only log of architectural and product decisions made during development.
 - Different enough from Surplus.id to score on "Innovation"
 
 **Impact:** All marketing copy and challenge brief emphasize UMKM kaki lima focus.
+
+---
+
+## 2026-07-21 — Frontend Image Persistence Strategy: localStorage Cache
+
+**Context:** The backend database schema accepts a `picture_url` field, but it validates as a URL, and there is no file storage bucket configured yet.
+**Choice:** Store the base64-compressed image locally in the browser's `localStorage` (key: `ludes_img_<item_id>`) upon successful food item creation, while passing `picture_url: ""` to the backend database.
+**Rationale:**
+- Keeps image uploads working for local demo/hackathon purposes without setting up an external storage bucket or modifying the database/shared package schemas.
+- Meets the Zod schemas constraint where `picture_url` must be `z.string().url()` (which base64 data URLs fail) by omitting it in the payload.
+- Fallback in `FoodCard` and `FoodDetailPage` checks for `localStorage` items when `picture_url` is empty.
+
+**Impact:** Merchant images persist and display on the user's browser, giving a complete, fully functional visual experience for the hackathon demo.
+
+---
+
+## 2026-07-21 — AI Flow Design: Collect Original Price in Step 1
+
+**Context:** The Hono backend `POST /api/ai/generate-listing` requires `original_price` to calculate dynamic pricing recommendations, but the draft UI flow collected this price in Step 3.
+**Choice:** Collect both the photo upload and the normal (original) price in Step 1 of the multi-step form.
+**Rationale:**
+- Satisfies the backend validator which requires the normal price upfront.
+- Simplifies the final step (Step 3) where the user only needs to set the final discount price, porsi quantity, and pickup times based on the AI's suggestions.
+
+**Impact:** Seamless wizard flow that works natively with the backend endpoints without validation errors.
