@@ -4,19 +4,19 @@ Append-only log of architectural and product decisions made during development.
 
 ---
 
-## 2026-07-21 — Rewrite from WarungHemat to Ludes
+## 2026-07-21 — Platform Architecture Selection
 
-**Context:** Existing WarungHemat Flutter mobile app built for IBM Mini-Hackathon. Need to submit to IDCamp Developer Challenge (deadline July 22, 2026 23:59).
+**Context:** Deciding building framework for IDCamp Developer Challenge submission. Deadline: July 22, 2026 23:59 WIB. Must deploy live at `ludes.camuscleansheet.com`.
 
-**Choice:** Full rewrite from Flutter mobile app to web app (React + Hono). Rebrand from "WarungHemat" to "Ludes."
+**Choice:** Build web app (React + Hono) instead of mobile-only client.
 
 **Rationale:**
-- Challenge requires Gen AI integration — original app had none
-- Web app easier to deploy live (bonus points) vs mobile app requiring APK/playstore
-- Target market (UMKM kaki lima) more accessible via web (no app install) than mobile
-- "WarungHemat" name too generic, "Ludes" is catchy, memorable, creates urgency/FOMO
+- Challenge requires Gen AI integration.
+- Web app easier to deploy live (bonus points) vs mobile app.
+- Target market (UMKM kaki lima) more accessible via web (no app install).
+- "Ludes" is catchy, memorable, creates urgency/FOMO.
 
-**Impact:** Complete rebuild, but same business concept (surplus food marketplace for UMKM).
+**Impact:** Clean web app architecture, same business concept (surplus food marketplace for UMKM).
 
 ---
 
@@ -124,7 +124,7 @@ Append-only log of architectural and product decisions made during development.
 
 ## 2026-07-21 — Brand Name: Ludes
 
-**Context:** "WarungHemat" too generic. Needed 1-word, catchy, memorable name.
+**Context:** Need a 1-word, catchy, memorable name for the product.
 
 **Choice:** "Ludes" (Indonesian for "completely gone, sold out").
 

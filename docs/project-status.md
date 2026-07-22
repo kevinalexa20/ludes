@@ -2,7 +2,7 @@
 
 ## Initial Ask
 
-Rewrite WarungHemat (Flutter mobile app) into a Gen AI-powered web app called Ludes. Target: IDCamp Developer Challenge submission. Deadline: July 22, 2026 23:59 WIB. Must deploy live at `ludes.camuscleansheet.com`.
+Build a Gen AI-powered web app called Ludes. Target: IDCamp Developer Challenge submission. Deadline: July 22, 2026 23:59 WIB. Must deploy live at `ludes.camuscleansheet.com`.
 
 ## Tech Decisions
 
