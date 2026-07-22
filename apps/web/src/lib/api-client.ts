@@ -1,7 +1,8 @@
 const getBaseUrl = (): string => {
   const envUrl = import.meta.env.VITE_API_BASE_URL;
   if (envUrl) return envUrl.replace(/\/$/, "");
-  // Fallback to origin if proxy is handled by path or default port
+  // Fallback to origin (relative path /api handled by nginx in prod)
+  if (import.meta.env.PROD) return "";
   return "http://localhost:3005";
 };
 
